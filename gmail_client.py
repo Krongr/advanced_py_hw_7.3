@@ -29,7 +29,11 @@ class GmailClient():
         # Re-identify ourselves as an encrypted connection
         session.ehlo()
         session.login(self.login, self.password)
-        result = session.sendmail(email['From'], email['To'], email.as_string())
+        result = session.sendmail(
+            email['From'], 
+            email['To'], 
+            email.as_string()
+        )
         session.quit()
         return result
 
